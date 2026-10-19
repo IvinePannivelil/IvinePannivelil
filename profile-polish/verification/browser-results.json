@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-19T06:03:22.285Z",
+  "checkedAt": "2026-10-19T06:58:52.512Z",
   "scope": "Local browser only; no live GitHub test",
   "viewports": [
     {
@@ -28,7 +28,7 @@
         {
           "source": "/profile-polish/assets/tools-desktop.svg",
           "x": 254,
-          "y": 2338.5625,
+          "y": 2287.5625,
           "width": 932,
           "height": 370.84375,
           "loaded": true
@@ -36,7 +36,7 @@
         {
           "source": "/profile-polish/assets/interests-desktop.svg",
           "x": 254,
-          "y": 3264.15625,
+          "y": 3213.15625,
           "width": 932,
           "height": 225.21875,
           "loaded": true
@@ -44,7 +44,7 @@
         {
           "source": "/profile-polish/assets/footer.svg",
           "x": 254,
-          "y": 3808.125,
+          "y": 3757.125,
           "width": 932,
           "height": 73.78125,
           "loaded": true
@@ -78,7 +78,7 @@
         {
           "source": "/profile-polish/assets/tools-desktop.svg",
           "x": 46,
-          "y": 2338.5625,
+          "y": 2287.5625,
           "width": 932,
           "height": 370.84375,
           "loaded": true
@@ -86,7 +86,7 @@
         {
           "source": "/profile-polish/assets/interests-desktop.svg",
           "x": 46,
-          "y": 3264.15625,
+          "y": 3213.15625,
           "width": 932,
           "height": 225.21875,
           "loaded": true
@@ -94,7 +94,7 @@
         {
           "source": "/profile-polish/assets/footer.svg",
           "x": 46,
-          "y": 3808.125,
+          "y": 3757.125,
           "width": 932,
           "height": 73.78125,
           "loaded": true
@@ -128,7 +128,7 @@
         {
           "source": "/profile-polish/assets/tools-mobile.svg",
           "x": 12,
-          "y": 3527.40625,
+          "y": 3450.90625,
           "width": 366,
           "height": 861.5,
           "loaded": true
@@ -136,7 +136,7 @@
         {
           "source": "/profile-polish/assets/interests-mobile.svg",
           "x": 12,
-          "y": 5224.15625,
+          "y": 5147.65625,
           "width": 366,
           "height": 332.203125,
           "loaded": true
@@ -144,7 +144,7 @@
         {
           "source": "/profile-polish/assets/footer-mobile.svg",
           "x": 12,
-          "y": 5977.109375,
+          "y": 5900.609375,
           "width": 366,
           "height": 60.046875,
           "loaded": true
@@ -178,7 +178,7 @@
         {
           "source": "/profile-polish/assets/tools-mobile.svg",
           "x": 12,
-          "y": 3610.921875,
+          "y": 3559.921875,
           "width": 336,
           "height": 790.890625,
           "loaded": true
@@ -186,7 +186,7 @@
         {
           "source": "/profile-polish/assets/interests-mobile.svg",
           "x": 12,
-          "y": 5313.5625,
+          "y": 5262.5625,
           "width": 336,
           "height": 304.984375,
           "loaded": true
@@ -194,7 +194,7 @@
         {
           "source": "/profile-polish/assets/footer-mobile.svg",
           "x": 12,
-          "y": 6064.796875,
+          "y": 6013.796875,
           "width": 336,
           "height": 55.125,
           "loaded": true
@@ -251,7 +251,7 @@
   ],
   "motionSamples": [
     {
-      "time": 1402.300000011921,
+      "time": 1394.300000011921,
       "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
@@ -262,7 +262,7 @@
       ]
     },
     {
-      "time": 1912.199999988079,
+      "time": 1902.5,
       "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
@@ -273,7 +273,7 @@
       ]
     },
     {
-      "time": 2426.300000011921,
+      "time": 2418.699999988079,
       "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
@@ -284,8 +284,8 @@
       ]
     },
     {
-      "time": 2939,
-      "headTransform": "matrix(1, -0.000485319, 0.000485319, 1, 0, 0)",
+      "time": 2930.599999964237,
+      "headTransform": "matrix(1, -0.000485915, 0.000485915, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -295,8 +295,8 @@
       ]
     },
     {
-      "time": 3453,
-      "headTransform": "matrix(0.99999, -0.00450532, 0.00450532, 0.99999, 0, 0)",
+      "time": 3443.5,
+      "headTransform": "matrix(0.99999, -0.00450698, 0.00450698, 0.99999, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -306,8 +306,8 @@
       ]
     },
     {
-      "time": 3970.199999988079,
-      "headTransform": "matrix(0.999953, -0.00967575, 0.00967575, 0.999953, 0, 0)",
+      "time": 3959.399999976158,
+      "headTransform": "matrix(0.999953, -0.00967614, 0.00967614, 0.999953, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -317,8 +317,8 @@
       ]
     },
     {
-      "time": 4483.300000011921,
-      "headTransform": "matrix(0.999936, -0.0113195, 0.0113195, 0.999936, 0, 0)",
+      "time": 4472.399999976158,
+      "headTransform": "matrix(0.999936, -0.0113193, 0.0113193, 0.999936, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -328,8 +328,8 @@
       ]
     },
     {
-      "time": 4997.399999976158,
-      "headTransform": "matrix(0.999971, -0.00758941, 0.00758941, 0.999971, 0, 0)",
+      "time": 4988.099999964237,
+      "headTransform": "matrix(0.999971, -0.00759005, 0.00759005, 0.999971, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -339,8 +339,8 @@
       ]
     },
     {
-      "time": 5511,
-      "headTransform": "matrix(1, 0.000727368, -0.000727368, 1, 0, 0)",
+      "time": 5498.800000011921,
+      "headTransform": "matrix(1, 0.000729746, -0.000729746, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -350,8 +350,8 @@
       ]
     },
     {
-      "time": 6021,
-      "headTransform": "matrix(0.999983, 0.00579695, -0.00579695, 0.999983, 0, 0)",
+      "time": 6013.199999988079,
+      "headTransform": "matrix(0.999983, 0.00582287, -0.00582287, 0.999983, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -361,8 +361,8 @@
       ]
     },
     {
-      "time": 6536.600000023842,
-      "headTransform": "matrix(0.999983, 0.0057709, -0.0057709, 0.999983, 0, 0)",
+      "time": 6523.199999988079,
+      "headTransform": "matrix(0.999983, 0.0057708, -0.0057708, 0.999983, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -372,8 +372,8 @@
       ]
     },
     {
-      "time": 7047,
-      "headTransform": "matrix(0.999992, 0.0039791, -0.0039791, 0.999992, 0, 0)",
+      "time": 7034.599999964237,
+      "headTransform": "matrix(0.999992, 0.00398074, -0.00398074, 0.999992, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -383,8 +383,8 @@
       ]
     },
     {
-      "time": 7560.399999976158,
-      "headTransform": "matrix(0.999999, 0.00151484, -0.00151484, 0.999999, 0, 0)",
+      "time": 7547.399999976158,
+      "headTransform": "matrix(0.999999, 0.00151545, -0.00151545, 0.999999, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -394,8 +394,8 @@
       ]
     },
     {
-      "time": 8073.600000023842,
-      "headTransform": "matrix(1, 0.00012045, -0.00012045, 1, 0, 0)",
+      "time": 8062,
+      "headTransform": "matrix(1, 0.000120739, -0.000120739, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
         590,
@@ -405,7 +405,7 @@
       ]
     },
     {
-      "time": 8584.899999976158,
+      "time": 8573,
       "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
@@ -416,7 +416,7 @@
       ]
     },
     {
-      "time": 9096.300000011921,
+      "time": 9086.099999964237,
       "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
@@ -427,7 +427,7 @@
       ]
     },
     {
-      "time": 9611.399999976158,
+      "time": 9595.699999988079,
       "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
       "bodyTransform": "none",
       "bodyRect": [
@@ -486,6 +486,6 @@
     ".head-idle": "none",
     ".trace": "none"
   },
-  "motionObservedSeconds": 8.209099999964238,
+  "motionObservedSeconds": 8.201399999976157,
   "passed": true
 }

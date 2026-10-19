@@ -26,13 +26,12 @@ My current work involves industrial data integration and energy monitoring. Alon
 
 `Computer vision` · `Tracking & counting` · `Evaluation`
 
-An extension of a baseline bottle detector into a tracking, counting and analytics workflow.
+Extended a YOLOv8-based bottle-detection pipeline with object tracking, directional counting and analytics.
 
-- **System extension:** persistent ByteTrack IDs, directional line counting, event logging and a dashboard for reviewing results.
-- **Reliability work:** failure-mode analysis, dataset diagnostics, ONNX export checks and automated tests.
+- **Tracking & analytics:** persistent ByteTrack IDs, directional line counting, event logging and a dashboard for reviewing results.
+- **Reliability & evaluation:** failure-mode analysis, dataset diagnostics, ONNX export checks and automated tests.
 
-**Built with:** Python, YOLOv8, OpenCV, ByteTrack, ONNX and PyTest.  
-*The baseline detector and original model training were a colleague's work. My contribution focuses on the downstream system, diagnostics and evaluation.*
+**Built with:** Python, YOLOv8, OpenCV, ByteTrack, ONNX and PyTest.
 
 ### 02 — [Multi-Agent Industrial Troubleshooting AI](https://github.com/IvinePannivelil/multi-agent-industrial-troubleshooting-ai)
 
