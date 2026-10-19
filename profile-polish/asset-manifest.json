@@ -1,0 +1,15 @@
+{
+  "approved_source_sha256": "a9885b2629713ef3048b98fe9ded0b749c080dd06b4e8ac1e6f4fe0220d52101",
+  "portrait_method": "SVG framing of unchanged full PNG",
+  "generated_assets": [
+    "profile-desktop.svg",
+    "profile-mobile.svg",
+    "tools-desktop.svg",
+    "tools-mobile.svg",
+    "interests-desktop.svg",
+    "interests-mobile.svg",
+    "footer.svg",
+    "footer-mobile.svg"
+  ],
+  "github_render_verified": false
+}

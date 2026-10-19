@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ivine — First Character Motion Proof</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<style>
+:root{color-scheme:dark;--bg:#070b12;--surface:#0c121d;--card:#111720;--border:#1e2e40;--ink:#e7edf5;--muted:#7a8fa3;--cyan:#00d9ff;--orange:#ff7a00;--green:#22c55e;--red:#f87171;--line:#1b2b3a}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{max-width:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,sans-serif;min-height:100vh}
+.skip{position:absolute;left:-9999px;top:4px;background:var(--cyan);color:#000;padding:6px 14px;border-radius:6px;font-weight:700;z-index:200}
+.skip:focus{left:8px}
+.header{position:sticky;top:0;z-index:100;display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 20px;background:rgba(7,11,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.header-title{font-size:11px;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;white-space:nowrap}
+.header-spacer{flex:1}
+.badge-rm{font-size:11px;padding:3px 10px;border-radius:4px;background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.35);color:var(--red);display:none}
+.badge-rm.active{display:block}
+main{max-width:1040px;margin:0 auto;padding:32px 20px 80px;overflow-x:clip}
+@media(max-width:420px){main{padding:20px 12px 60px}.section{padding:14px 10px}}
+h1{font-size:clamp(22px,4vw,34px);letter-spacing:-.03em;line-height:1.2;margin:6px 0 8px}
+.eyeline{font-size:11px;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}
+.intro{max-width:680px;color:var(--muted);margin-bottom:28px;font-size:14px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+button,select{border:1px solid var(--border);border-radius:8px;padding:9px 14px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer;font-size:13px;transition:border-color .15s,background .15s}
+button:hover:not(:disabled){border-color:var(--cyan);background:rgba(0,217,255,.07)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+button[aria-pressed="true"]{border-color:var(--orange);color:var(--orange)}
+button:disabled{opacity:.6;cursor:not-allowed;border-color:var(--border)}
+.btn-primary{background:rgba(0,217,255,.12);border-color:var(--cyan);color:var(--cyan);font-weight:600}
+.btn-primary:hover:not(:disabled){background:var(--cyan);color:#000}
+#mode-label{font-size:12px;color:var(--muted);margin-left:4px}
+.stage-wrap{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#080c14;margin:0 auto 8px;transition:max-width .25s ease}
+.stage-wrap img{display:block;width:100%;height:auto}
+.stage-label{font-size:11px;color:var(--muted);letter-spacing:.1em;margin-bottom:20px;text-align:center}
+.vp-label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.vp-strip{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.vp-btn{font-size:11px;padding:6px 10px;border-radius:5px;font-family:ui-monospace,monospace}
+.vp-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,217,255,.08)}
+.section{border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);margin-bottom:22px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap}
+.section-head h2{font-size:15px;letter-spacing:-.01em}
+.tag{font-size:10px;padding:2px 8px;border-radius:4px;font-family:ui-monospace,monospace;background:rgba(0,217,255,.08);border:1px solid rgba(0,217,255,.25);color:var(--cyan);white-space:nowrap}
+.lab-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}
+@media(max-width:660px){.lab-grid{grid-template-columns:1fr}}
+.lab-canvas{border-radius:10px;overflow:hidden;background:repeating-conic-gradient(#182030 0% 25%,#0f1820 0% 50%) 50%/20px 20px;min-height:360px;display:flex;align-items:stretch}
+.lab-canvas>svg{width:100%;height:100%}
+.lab-side{display:flex;flex-direction:column;gap:14px}
+label{display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer}
+label input[type=checkbox]{accent-color:var(--cyan);width:16px;height:16px}
+input[type=range]{width:100%;accent-color:var(--cyan)}
+output{font-family:ui-monospace,monospace;font-size:13px;color:var(--cyan)}
+.note{font-size:12px;color:var(--muted);line-height:1.5}
+.status-ok{font-size:12px;color:var(--green)}
+.status-err{font-size:12px;color:var(--red)}
+#lab-status{font-size:12px}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:7px}
+.checklist li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--muted)}
+.checklist li .ck{color:var(--green);flex-shrink:0;margin-top:1px}
+.checklist li .ck.warn{color:var(--orange)}
+.checklist li .ck.fail{color:var(--red)}
+.checklist li strong{color:var(--ink)}
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:8px}
+table{width:100%;min-width:440px;border-collapse:collapse;font-size:12px;font-family:ui-monospace,monospace}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--cyan);font-weight:600;background:rgba(0,217,255,.04)}
+td{color:var(--muted)}
+td:first-child{color:var(--ink)}
+td.ok{color:var(--green)}
+td.warn{color:var(--orange)}
+code{font-family:ui-monospace,monospace;font-size:12px;word-break:break-all}
+footer{font-size:12px;color:var(--muted);margin-top:32px;text-align:center}
+footer a{color:var(--cyan)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+<div class="header" role="banner">
+  <div class="header-title">Ivine / Motion Proof 01</div>
+  <div class="header-spacer"></div>
+  <div class="badge-rm" id="rm-badge" role="status" aria-live="polite">&#x26A0; Reduced motion active</div>
+</div>
+<main id="main-content">
+  <p class="eyeline">First character motion proof</p>
+  <h1>The approved character, in motion.</h1>
+  <p class="intro">0.8 s ease-out entrance &middot; 7 s head-only idle (−0.65&deg; to +0.35&deg;) &middot; static body/folded arms. The approved PNG is immutable; only SVG clip paths and CSS transforms produce motion. This page proves the animation, controls, simulated widths and reduced-motion behaviour.</p>
+
+  <!-- SECTION 1: External img rendering -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9312; External &lt;img&gt; rendering</h2>
+      <span class="tag">hero-desktop.svg / hero-mobile.svg</span>
+    </div>
+    <div class="controls" role="toolbar" aria-label="Hero controls">
+      <button class="btn-primary" id="replay" aria-label="Replay entrance animation">&#10227; Replay</button>
+      <button id="motion-btn" aria-pressed="false" aria-label="Toggle still/animated version">Use still version</button>
+      <button id="size-btn" aria-pressed="false" aria-label="Toggle desktop/phone layout">Phone layout</button>
+      <span id="mode-label">Entrance: 0.8 s ease-out &middot; Head cycle: 7 s (−0.65&deg; to +0.35&deg;)</span>
+    </div>
+    <div class="vp-label" id="vp-desc">Simulated hero container width (does not resize browser viewport):</div>
+    <div class="vp-strip" role="group" aria-labelledby="vp-desc">
+      <button class="vp-btn active" data-vp="960" id="vp-1440">960 px container (Desktop 1440)</button>
+      <button class="vp-btn" data-vp="760" id="vp-1024">760 px container (Laptop 1024)</button>
+      <button class="vp-btn" data-vp="390" id="vp-390">390 px container (Phone)</button>
+      <button class="vp-btn" data-vp="360" id="vp-360">360 px container (Compact phone)</button>
+    </div>
+    <div class="stage-wrap" id="stage" style="max-width:960px">
+      <picture id="hero-picture">
+        <source id="mob-source" media="(max-width:480px)" srcset="assets/hero-mobile.svg">
+        <img id="hero-img" src="assets/hero-desktop.svg" alt="Ivine P Sabu - AI Engineer focused on Machine Learning, Data Science and Applied AI." width="960" height="540">
+      </picture>
+    </div>
+    <p class="stage-label" id="stage-label">Rendering: hero-desktop.svg via &lt;img&gt; element (960px container)</p>
+  </div>
+
+  <!-- SECTION 2: Layer inspector -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9313; Layer inspector &mdash; inline SVG</h2>
+      <span class="tag">Live DOM / head + body isolation</span>
+    </div>
+    <p class="note" style="margin-bottom:14px">Hide either region to prove the layers are independent. The neck underlap belongs to the body and hides with it. The angle slider confirms head rotation pivots near (493 px, 292 px). Requires HTTP &mdash; run the local server command shown at the bottom.</p>
+    <div class="lab-grid">
+      <div class="lab-canvas" id="lab" aria-label="Character layer inspector"></div>
+      <div class="lab-side">
+        <label><input type="checkbox" id="show-head" checked><span>Head region (face, beard, hair)</span></label>
+        <label><input type="checkbox" id="show-body" checked><span>Body + folded arms + neck underlap</span></label>
+        <div>
+          <label for="tilt">Manual head angle &nbsp;<output id="angle">0.00&deg;</output></label>
+          <input type="range" id="tilt" min="-0.65" max="0.35" step="0.05" value="0" aria-label="Head rotation angle" style="margin-top:6px">
+        </div>
+        <button id="reset-lab" aria-label="Reset pose to defaults">Reset pose</button>
+        <div id="lab-status" class="note">Loading inspector&hellip;</div>
+        <p class="note">Pivot: (493 px, 292 px) in source space.<br>Idle keyframes: 0&deg; &rarr; &minus;0.65&deg; &rarr; +0.35&deg; &rarr; 0&deg; over 7 s.<br>Body, arms and shoes remain static.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: QA checklist -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9314; QA checklist</h2>
+      <span class="tag">motion-proof 01</span>
+    </div>
+    <ul class="checklist">
+      <li><span class="ck">&#10003;</span><div><strong>Source PNG checksum</strong> &mdash; SHA-256 a9885b26&hellip; verified before and after build. Byte-for-byte identical.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Build reproducible</strong> &mdash; <code>build_motion.py</code> regenerates all 6 SVG variants using Python standard library only.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>SVG self-contained</strong> &mdash; PNG embedded as base64; no external images, scripts or foreignObject inside runtime SVGs.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Static SVGs have no keyframes</strong> &mdash; hero-desktop-static.svg and hero-mobile-static.svg confirmed keyframe-free.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Head/body disjoint clips</strong> &mdash; same PNG, two different clipPath polygons; body does not contain a duplicate head.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Neck underlap</strong> &mdash; belongs to body group; hides with body; never on top of face.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Entrance timing</strong> &mdash; 0.8 s, opacity 0.35&rarr;1, translateY 10&rarr;0 px source units. CSS <code>arrive</code> keyframe on <code>.entrance</code> class.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Head idle</strong> &mdash; 7 s cycle, 1.2 s delay, infinite repeat. 0&deg; &rarr; &minus;0.65&deg; &rarr; +0.35&deg; &rarr; 0&deg;. Only head group animated.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Body stationary</strong> &mdash; body group has no animation class; folded arms remain still throughout idle cycle.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Name/role visible from frame 0</strong> &mdash; text elements have no delay; opacity 0.35 is only on the character group.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>prefers-reduced-motion CSS rule</strong> &mdash; stops head-idle, entrance and trace animations; sets opacity:1 and transform:none.</div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>Still toggle</strong> &mdash; swaps to static SVG variant (no keyframes). <em>Observe live reload via HTTP server.</em></div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>Browser recording (12 s)</strong> &mdash; attempted via browser tool below; availability depends on IDE browser integration.</div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>GitHub rendering</strong> &mdash; NOT verified. Animation in &lt;img&gt; tags is browser-dependent; GitHub may strip or pause CSS animations.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Viewport 1440/1024 px</strong> &mdash; stage max-width 960 px; text readable, character fully visible, no overflow.</div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>Viewport 390/360 px</strong> &mdash; phone layout toggle active; mobile SVG (390&times;650) loaded. Verify text and feet visibility below.</div></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4: Reduced-motion proof -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9315; Reduced-motion proof</h2>
+      <span class="tag">prefers-reduced-motion + still toggle</span>
+    </div>
+    <p class="note" style="margin-bottom:14px">The still SVG below has no animation keyframes. It is the correct fallback for reduced-motion and for GitHub rendering where CSS animations may not run. Face, name, role and full body (including shoes) must all be visible.</p>
+    <div class="stage-wrap" style="max-width:760px;margin:0 auto">
+      <img src="assets/hero-desktop-static.svg" alt="Ivine P Sabu - AI Engineer, static version" width="960" height="540" style="width:100%;height:auto">
+    </div>
+    <p class="stage-label">Static desktop SVG &mdash; no keyframes, complete composition</p>
+  </div>
+
+  <!-- SECTION 5: Mobile static -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9316; Mobile static composition</h2>
+      <span class="tag">hero-mobile-static.svg</span>
+    </div>
+    <div class="stage-wrap" style="max-width:390px;margin:0 auto">
+      <img src="assets/hero-mobile-static.svg" alt="Ivine P Sabu - AI Engineer, mobile static version" width="390" height="650" style="width:100%;height:auto">
+    </div>
+    <p class="stage-label">Static mobile SVG &mdash; 390&times;650 viewport, separate composition</p>
+  </div>
+
+  <!-- SECTION 6: Asset sizes -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9317; Asset sizes</h2>
+      <span class="tag">byte counts</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>File</th><th>Size</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>ivine-approved-arms-folded.png</td><td>1,808 KB</td><td class="warn">Master &mdash; immutable, not loaded at runtime</td></tr>
+          <tr><td>hero-desktop.svg</td><td>~2,415 KB</td><td class="warn">Base64 PNG embedded &mdash; fidelity-first prototype</td></tr>
+          <tr><td>hero-desktop-static.svg</td><td>~2,414 KB</td><td>Same embed, no keyframes</td></tr>
+          <tr><td>hero-mobile.svg</td><td>~2,414 KB</td><td class="warn">Same embed, phone layout</td></tr>
+          <tr><td>hero-mobile-static.svg</td><td>~2,414 KB</td><td>Phone, no keyframes</td></tr>
+          <tr><td>head-region.svg</td><td>~2,412 KB</td><td>Inspection only</td></tr>
+          <tr><td>body-region.svg</td><td>~2,412 KB</td><td>Inspection only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">&#x26A0; Fidelity-first prototype sizes (PNG embedded once per SVG). For production, proposed optimization: extract a WebP derivative (~150-300 KB) for the embed; keep the master PNG unchanged.</p>
+  </div>
+
+  <!-- SECTION 7: Keyboard accessibility -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9318; Keyboard accessibility</h2>
+      <span class="tag">Tab / Enter / Space</span>
+    </div>
+    <ul class="checklist">
+      <li><span class="ck">&#10003;</span><div><strong>Replay</strong> &mdash; Tab to focus, Enter/Space to activate. Focus ring: 2 px cyan outline.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Still/animated toggle</strong> &mdash; <code>aria-pressed</code> state announced by screen readers.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Desktop/phone toggle</strong> &mdash; <code>aria-pressed</code> state, focus ring.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Viewport buttons</strong> &mdash; keyboard navigable, active state indicated via border/colour.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Head/body checkboxes</strong> &mdash; native checkboxes with visible labels.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Angle slider</strong> &mdash; native range input, <code>aria-label</code> and live <code>&lt;output&gt;</code> element.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Reset pose</strong> &mdash; button, keyboard activatable.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>SVG role/aria-labelledby</strong> &mdash; each SVG has <code>role="img"</code> and title/desc elements.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Skip link</strong> &mdash; "Skip to content" visible on first Tab press.</div></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 8: Known limitations -->
+  <div class="section">
+    <div class="section-head">
+      <h2>&#9319; Known limitations and scope</h2>
+      <span class="tag">honest record</span>
+    </div>
+    <ul class="checklist">
+      <li><span class="ck warn">&#9888;</span><div><strong>File size</strong> &mdash; ~2.4 MB per SVG due to base64 PNG embed. Not optimised for production publish.</div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>GitHub animation</strong> &mdash; GitHub may pause CSS animations in &lt;img&gt; tags. Requires real-browser test on the published profile.</div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>Edge halos</strong> &mdash; SVG clip paths retain small lit/coloured edges from the approved source. Suitable for dark backgrounds; full matte not claimed.</div></li>
+      <li><span class="ck warn">&#9888;</span><div><strong>Browser recording</strong> &mdash; 12-second recording attempted via browser tool. Result reported in QA report.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Scope boundary</strong> &mdash; No blinking, arm gestures, breathing or torso rotation. Folded arms stay static. Conservative head-only idle rig.</div></li>
+      <li><span class="ck">&#10003;</span><div><strong>Appearance lock</strong> &mdash; Approved fuller build, grown beard, curly hair, silver watch, white shoes, cyan/orange accents. No regeneration or modification.</div></li>
+    </ul>
+  </div>
+
+  <footer>
+    Local prototype &mdash; not for public push &nbsp;&middot;&nbsp;
+    <a href="START_HERE.md">Setup &amp; scope</a> &nbsp;&middot;&nbsp;
+    <a href="MOTION_SPEC.md">Motion spec</a> &nbsp;&middot;&nbsp;
+    <a href="VERIFICATION.md">Verification record</a><br>
+    Start server: <code>python -m http.server 8089 --bind 127.0.0.1 --directory v4/motion-proof</code>
+    &nbsp; from project root &nbsp;&middot;&nbsp; then open <code>http://127.0.0.1:8089/preview.html</code>
+  </footer>
+</main>
+<script>
+const rmQuery = matchMedia('(prefers-reduced-motion: reduce)');
+const vpMobileQuery = matchMedia('(max-width: 480px)');
+const isRM = () => rmQuery.matches || new URLSearchParams(location.search).has('rm') || new URLSearchParams(location.search).has('reduced-motion');
+
+let userOverride = false;
+let phone = vpMobileQuery.matches;
+let activeVp = phone ? (window.innerWidth <= 360 ? 360 : 390) : 960;
+let still = isRM(), revision = 0;
+
+const heroImg = document.getElementById('hero-img');
+const mobSource = document.getElementById('mob-source');
+const stage = document.getElementById('stage');
+const modeLabel = document.getElementById('mode-label');
+const rmBadge = document.getElementById('rm-badge');
+const motionBtn = document.getElementById('motion-btn');
+const sizeBtn = document.getElementById('size-btn');
+
+function render(){
+  const rm = isRM();
+  if (rm) {
+    still = true; // System reduced motion enforces still SVG
+  }
+  const variant = still ? '-static' : '';
+  const layout = phone ? 'mobile' : 'desktop';
+  const sfx = '?v=' + revision;
+  mobSource.srcset = 'assets/hero-mobile' + variant + '.svg' + sfx;
+  mobSource.media = phone ? 'all' : 'not all';
+  heroImg.src = 'assets/hero-' + layout + variant + '.svg' + sfx;
+
+  // FIX: Use activeVp directly — ensures 360 px is not overridden!
+  stage.style.maxWidth = activeVp + 'px';
+  document.getElementById('stage-label').textContent = 'Rendering: hero-' + layout + variant + '.svg via <img> element (' + activeVp + 'px container)';
+
+  if (rm) {
+    motionBtn.textContent = 'Still version enforced (Reduced motion)';
+    motionBtn.setAttribute('aria-pressed', 'true');
+    motionBtn.disabled = true;
+    motionBtn.title = 'System prefers-reduced-motion is active. Still SVG is enforced to respect user preference.';
+    modeLabel.textContent = 'Reduced motion active — still SVG enforced by system.';
+    rmBadge.classList.add('active');
+  } else {
+    motionBtn.disabled = false;
+    motionBtn.title = '';
+    motionBtn.textContent = still ? 'Use animated version' : 'Use still version';
+    motionBtn.setAttribute('aria-pressed', String(still));
+    if (still) {
+      modeLabel.textContent = 'Still version selected manually.';
+    } else {
+      modeLabel.textContent = 'Entrance: 0.8 s ease-out \u00b7 Head idle: 7 s cycle (\u22120.65\u00b0 to +0.35\u00b0)';
+    }
+    rmBadge.classList.remove('active');
+  }
+
+  sizeBtn.textContent = phone ? 'Desktop layout' : 'Phone layout';
+  sizeBtn.setAttribute('aria-pressed', String(phone));
+
+  document.querySelectorAll('.vp-btn').forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.vp, 10) === activeVp);
+  });
+}
+
+document.getElementById('replay').onclick = () => { revision++; render(); };
+
+motionBtn.onclick = () => {
+  if (isRM()) return; // Keep reduced motion effective
+  still = !still;
+  render();
+};
+
+sizeBtn.onclick = () => {
+  userOverride = true;
+  phone = !phone;
+  if (phone) {
+    if (activeVp > 390) activeVp = 390;
+  } else {
+    if (activeVp <= 390) activeVp = 960;
+  }
+  render();
+};
+
+document.querySelectorAll('.vp-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    userOverride = true;
+    activeVp = parseInt(btn.dataset.vp, 10);
+    phone = (activeVp <= 390);
+    render();
+  });
+});
+
+vpMobileQuery.addEventListener('change', () => {
+  if (!userOverride) {
+    phone = vpMobileQuery.matches;
+    activeVp = phone ? 390 : 960;
+    render();
+  }
+});
+
+rmQuery.addEventListener('change', () => {
+  if (isRM()) still = true;
+  render();
+});
+render();
+
+fetch('assets/hero-desktop-static.svg')
+  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
+  .then(text=>{
+    const parsed=new DOMParser().parseFromString(text,'image/svg+xml');
+    if(parsed.querySelector('parsererror'))throw new Error('SVG parse error');
+    const svg=parsed.documentElement;
+    svg.setAttribute('viewBox','250 20 570 1510');
+    svg.setAttribute('width','570');
+    svg.setAttribute('height','1510');
+    svg.style.width='100%';svg.style.height='100%';
+    const placement=svg.querySelector('#character-placement');
+    if(placement)placement.removeAttribute('transform');
+    [...svg.children].forEach(node=>{
+      const keep=['defs','style','title','desc'].includes(node.localName)||node===placement;
+      if(!keep)node.remove();
+    });
+    document.getElementById('lab').appendChild(document.importNode(svg,true));
+    const labSvg=document.querySelector('#lab svg');
+    const headPivot=labSvg.querySelector('#head-pivot');
+    const bodyGrp=labSvg.querySelector('#body');
+    const underlap=labSvg.querySelector('#neck-underlap');
+    function updateLab(){
+      const showHead=document.getElementById('show-head').checked;
+      const showBody=document.getElementById('show-body').checked;
+      const angle=parseFloat(document.getElementById('tilt').value);
+      if(headPivot)headPivot.style.display=showHead?'':'none';
+      if(bodyGrp)bodyGrp.style.display=showBody?'':'none';
+      if(underlap)underlap.style.display=showBody?'':'none';
+      if(headPivot){
+        headPivot.style.transformBox='view-box';
+        headPivot.style.transformOrigin='493px 292px';
+        headPivot.style.transform='rotate('+angle+'deg)';
+      }
+      document.getElementById('angle').textContent=angle.toFixed(2)+'\u00b0';
+    }
+    ['show-head','show-body','tilt'].forEach(id=>document.getElementById(id).addEventListener('input',updateLab));
+    document.getElementById('reset-lab').onclick=()=>{
+      document.getElementById('show-head').checked=true;
+      document.getElementById('show-body').checked=true;
+      document.getElementById('tilt').value=0;
+      updateLab();
+    };
+    document.getElementById('lab-status').textContent='\u2713 Inspector ready. Head and body toggle independently. Neck underlap follows body.';
+    document.getElementById('lab-status').className='status-ok';
+    updateLab();
+  })
+  .catch(err=>{
+    document.getElementById('lab-status').textContent='Inspector needs HTTP - run: python -m http.server 8089 --bind 127.0.0.1 --directory v4/motion-proof  then reload. ('+err.message+')';
+    document.getElementById('lab-status').className='status-err';
+  });
+</script>
+</body>
+</html>

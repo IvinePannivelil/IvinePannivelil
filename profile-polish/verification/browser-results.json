@@ -1,0 +1,491 @@
+{
+  "checkedAt": "2026-10-19T06:03:22.285Z",
+  "scope": "Local browser only; no live GitHub test",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "dpr": 1,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "pictures": [
+        {
+          "source": "/v4/motion-proof/assets/hero-desktop.svg",
+          "x": 254,
+          "y": 68.5,
+          "width": 932,
+          "height": 524.25,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/profile-desktop.svg",
+          "x": 254,
+          "y": 802.625,
+          "width": 932,
+          "height": 267.9375,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/tools-desktop.svg",
+          "x": 254,
+          "y": 2338.5625,
+          "width": 932,
+          "height": 370.84375,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/interests-desktop.svg",
+          "x": 254,
+          "y": 3264.15625,
+          "width": 932,
+          "height": 225.21875,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/footer.svg",
+          "x": 254,
+          "y": 3808.125,
+          "width": 932,
+          "height": 73.78125,
+          "loaded": true
+        }
+      ],
+      "overflowing": []
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "dpr": 1,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "pictures": [
+        {
+          "source": "/v4/motion-proof/assets/hero-desktop.svg",
+          "x": 46,
+          "y": 68.5,
+          "width": 932,
+          "height": 524.25,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/profile-desktop.svg",
+          "x": 46,
+          "y": 802.625,
+          "width": 932,
+          "height": 267.9375,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/tools-desktop.svg",
+          "x": 46,
+          "y": 2338.5625,
+          "width": 932,
+          "height": 370.84375,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/interests-desktop.svg",
+          "x": 46,
+          "y": 3264.15625,
+          "width": 932,
+          "height": 225.21875,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/footer.svg",
+          "x": 46,
+          "y": 3808.125,
+          "width": 932,
+          "height": 73.78125,
+          "loaded": true
+        }
+      ],
+      "overflowing": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 1,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "pictures": [
+        {
+          "source": "/v4/motion-proof/assets/hero-mobile.svg",
+          "x": 12,
+          "y": 104,
+          "width": 366,
+          "height": 610,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/profile-mobile.svg",
+          "x": 12,
+          "y": 1051.375,
+          "width": 366,
+          "height": 523.65625,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/tools-mobile.svg",
+          "x": 12,
+          "y": 3527.40625,
+          "width": 366,
+          "height": 861.5,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/interests-mobile.svg",
+          "x": 12,
+          "y": 5224.15625,
+          "width": 366,
+          "height": 332.203125,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/footer-mobile.svg",
+          "x": 12,
+          "y": 5977.109375,
+          "width": 366,
+          "height": 60.046875,
+          "loaded": true
+        }
+      ],
+      "overflowing": []
+    },
+    {
+      "width": 360,
+      "height": 780,
+      "dpr": 1,
+      "clientWidth": 360,
+      "scrollWidth": 360,
+      "pictures": [
+        {
+          "source": "/v4/motion-proof/assets/hero-mobile.svg",
+          "x": 12,
+          "y": 104,
+          "width": 336,
+          "height": 560,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/profile-mobile.svg",
+          "x": 12,
+          "y": 1052.375,
+          "width": 336,
+          "height": 480.734375,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/tools-mobile.svg",
+          "x": 12,
+          "y": 3610.921875,
+          "width": 336,
+          "height": 790.890625,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/interests-mobile.svg",
+          "x": 12,
+          "y": 5313.5625,
+          "width": 336,
+          "height": 304.984375,
+          "loaded": true
+        },
+        {
+          "source": "/profile-polish/assets/footer-mobile.svg",
+          "x": 12,
+          "y": 6064.796875,
+          "width": 336,
+          "height": 55.125,
+          "loaded": true
+        }
+      ],
+      "overflowing": []
+    }
+  ],
+  "reducedMotion": [
+    {
+      "width": 1440,
+      "matches": true,
+      "source": "/v4/motion-proof/assets/hero-desktop-static.svg"
+    },
+    {
+      "width": 390,
+      "matches": true,
+      "source": "/v4/motion-proof/assets/hero-mobile-static.svg"
+    }
+  ],
+  "assets": [
+    {
+      "name": "footer-mobile.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "footer.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "interests-desktop.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "interests-mobile.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "profile-desktop.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "profile-mobile.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "tools-desktop.svg",
+      "outOfBounds": []
+    },
+    {
+      "name": "tools-mobile.svg",
+      "outOfBounds": []
+    }
+  ],
+  "motionSamples": [
+    {
+      "time": 1402.300000011921,
+      "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 1912.199999988079,
+      "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 2426.300000011921,
+      "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 2939,
+      "headTransform": "matrix(1, -0.000485319, 0.000485319, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 3453,
+      "headTransform": "matrix(0.99999, -0.00450532, 0.00450532, 0.99999, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 3970.199999988079,
+      "headTransform": "matrix(0.999953, -0.00967575, 0.00967575, 0.999953, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 4483.300000011921,
+      "headTransform": "matrix(0.999936, -0.0113195, 0.0113195, 0.999936, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 4997.399999976158,
+      "headTransform": "matrix(0.999971, -0.00758941, 0.00758941, 0.999971, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 5511,
+      "headTransform": "matrix(1, 0.000727368, -0.000727368, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 6021,
+      "headTransform": "matrix(0.999983, 0.00579695, -0.00579695, 0.999983, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 6536.600000023842,
+      "headTransform": "matrix(0.999983, 0.0057709, -0.0057709, 0.999983, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 7047,
+      "headTransform": "matrix(0.999992, 0.0039791, -0.0039791, 0.999992, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 7560.399999976158,
+      "headTransform": "matrix(0.999999, 0.00151484, -0.00151484, 0.999999, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 8073.600000023842,
+      "headTransform": "matrix(1, 0.00012045, -0.00012045, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 8584.899999976158,
+      "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 9096.300000011921,
+      "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    },
+    {
+      "time": 9611.399999976158,
+      "headTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "bodyTransform": "none",
+      "bodyRect": [
+        590,
+        15,
+        345.0880126953125,
+        517.6320190429688
+      ]
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "browserVersion": "155.0.8059.40",
+  "masterPngSha256": "a9885b2629713ef3048b98fe9ded0b749c080dd06b4e8ac1e6f4fe0220d52101",
+  "linksAndDetails": {
+    "hasDetails": true,
+    "initialOpen": false,
+    "afterClickOpen": true,
+    "links": [
+      {
+        "text": "Industrial Conveyor Vision Analytics",
+        "href": "https://github.com/IvinePannivelil/Industrial-Conveyor-Vision-Analytics"
+      },
+      {
+        "text": "Multi-Agent Industrial Troubleshooting AI",
+        "href": "https://github.com/IvinePannivelil/multi-agent-industrial-troubleshooting-ai"
+      },
+      {
+        "text": "IIoT Dairy Monitoring Dashboard",
+        "href": "https://github.com/IvinePannivelil/iiot-dairy-monitoring-dashboard"
+      },
+      {
+        "text": "Smart Glasses — Real-Time Transcribing HUD",
+        "href": "https://github.com/IvinePannivelil/Smart-Glasses-Real-Time-Transcribing-Glasses"
+      },
+      {
+        "text": "JIVA — Job Seeking Mobile Application",
+        "href": "https://github.com/IvinePannivelil/JIVA-Job-Seeking-App"
+      },
+      {
+        "text": "LinkedIn",
+        "href": "https://www.linkedin.com/in/ivine-pannivelil"
+      },
+      {
+        "text": "Email",
+        "href": "mailto:ivine3585@gmail.com"
+      },
+      {
+        "text": "GitHub",
+        "href": "https://github.com/IvinePannivelil"
+      }
+    ]
+  },
+  "directSvgReducedMotion": {
+    ".entrance": "none",
+    ".head-idle": "none",
+    ".trace": "none"
+  },
+  "motionObservedSeconds": 8.209099999964238,
+  "passed": true
+}

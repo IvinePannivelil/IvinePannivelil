@@ -1,0 +1,21 @@
+{
+  "approved_source": "assets/ivine-approved-arms-folded.png",
+  "approved_source_sha256": "a9885b2629713ef3048b98fe9ded0b749c080dd06b4e8ac1e6f4fe0220d52101",
+  "source_dimensions": [
+    1024,
+    1536
+  ],
+  "method": "Immutable raster with head/body SVG clips, neck underlap and a local SVG rear-hair rim colour treatment",
+  "revision": "Reduced blue halo behind hair; tighter rear-head and neck clip; face and body unfiltered",
+  "head_pivot": [
+    493,
+    292
+  ],
+  "idle_rotation_degrees": [
+    -0.65,
+    0.35
+  ],
+  "idle_period_seconds": 7,
+  "scope": "Arms-folded entrance and head-only idle. No independent arm, blink or breathing claim.",
+  "github_render_verified": false
+}
